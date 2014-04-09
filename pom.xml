@@ -10,7 +10,7 @@
 
     <groupId>org.xbib.elasticsearch</groupId>
     <artifactId>elasticsearch-langdetect</artifactId>
-    <version>1.2.0</version>
+    <version>1.0.0.RC1.1</version>
     <packaging>jar</packaging>
 
     <inceptionYear>2012</inceptionYear>
@@ -38,7 +38,7 @@
     </distributionManagement>
 
     <properties>
-        <elasticsearch.version>0.90.3</elasticsearch.version>
+        <elasticsearch.version>1.0.0.RC1</elasticsearch.version>
     </properties>
 
     <dependencies>

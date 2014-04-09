@@ -21,7 +21,7 @@ import org.elasticsearch.common.component.AbstractLifecycleComponent;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.ElasticSearchException;
+import org.elasticsearch.ElasticsearchException;
 
 public class Detector extends AbstractLifecycleComponent<Detector> {
 
@@ -63,21 +63,21 @@ public class Detector extends AbstractLifecycleComponent<Detector> {
         try {
             loadDefaultProfiles();
         } catch (IOException e) {
-            throw new ElasticSearchException(e.getMessage());
+            throw new ElasticsearchException(e.getMessage());
         }
         reset();
     }
 
     @Override
-    protected void doStart() throws ElasticSearchException {
+    protected void doStart() throws ElasticsearchException {
     }
 
     @Override
-    protected void doStop() throws ElasticSearchException {
+    protected void doStop() throws ElasticsearchException {
     }
 
     @Override
-    protected void doClose() throws ElasticSearchException {
+    protected void doClose() throws ElasticsearchException {
     }
 
     public void loadDefaultProfiles() throws IOException {

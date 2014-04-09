@@ -1,10 +1,9 @@
 package org.xbib.elasticsearch.module.langdetect;
 
-import org.apache.lucene.index.IndexableField;
+import org.elasticsearch.index.mapper.ParseContext.Document;
 import org.apache.lucene.analysis.core.KeywordAnalyzer;
 import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.analysis.fr.FrenchAnalyzer;
-import org.apache.lucene.document.Document;
 import org.elasticsearch.common.bytes.BytesReference;
 import org.elasticsearch.common.collect.Maps;
 import org.elasticsearch.common.settings.ImmutableSettings;
@@ -50,7 +49,7 @@ public class LangdetectMappingTest extends Assert {
                 new PreBuiltAnalyzerProviderFactory("french", AnalyzerScope.INDEX, new FrenchAnalyzer(Version.LUCENE_CURRENT)));
         AnalysisService analysisService = new AnalysisService(index,
                 ImmutableSettings.Builder.EMPTY_SETTINGS, null, analyzerFactoryFactories, null, null, null);
-        mapperParser = new DocumentMapperParser(index, analysisService, new PostingsFormatService(index),
+        mapperParser = new DocumentMapperParser(index, analysisService, new PostingsFormatService(index), null,
                 new SimilarityLookupService(index, ImmutableSettings.Builder.EMPTY_SETTINGS));
         Settings settings = settingsBuilder()
                 .build();

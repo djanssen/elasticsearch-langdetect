@@ -5,6 +5,8 @@ import org.elasticsearch.index.analysis.NamedAnalyzer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Hashtable;
+
+import org.apache.lucene.util.ToStringUtils;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentParser;
 import org.elasticsearch.index.analysis.AnalysisService;
@@ -242,6 +244,10 @@ public class LangdetectMapper implements Mapper {
 
         context.externalValue(content);
         contentMapper.parse(context);
+
+        if (content == null) {
+            return;
+        } 
 
         List<Language> langs = null;
         try {
